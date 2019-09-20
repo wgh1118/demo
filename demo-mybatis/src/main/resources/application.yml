@@ -1,0 +1,38 @@
+server:
+  port: 2000
+
+spring:
+  jackson:
+    default-property-inclusion: always
+    date-format: com.fasterxml.jackson.databind.util.StdDateFormat
+    time-zone: GMT+8
+  datasource:
+    dynamic:
+      p6spy: true
+      primary: master
+      datasource:
+        master:
+          username: root
+          password: 123456
+          url: jdbc:mysql://127.0.0.1:13306/test?useUnicode=true&characterEncoding=utf-8
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        slave:
+          username: root
+          password: 123456
+          url: jdbc:mysql://127.0.0.1:13307/test?useUnicode=true&characterEncoding=utf-8
+          driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.wanggh.exerise.mybatis
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_null # 字段策略
+      table-underline: true # 驼峰下划线转换
+      logic-delete-value: 1 # 逻辑删除
+      logic-not-delete-value: 0 # 逻辑未删除
+
+logging:
+  level:
+    com.baomidou.mybatisplus.samples: debug

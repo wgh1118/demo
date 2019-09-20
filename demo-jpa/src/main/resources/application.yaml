@@ -1,0 +1,20 @@
+server:
+  port: 2000
+spring:
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    master:
+      username: root
+      password: 123456
+      jdbcUrl: jdbc:mysql://127.0.0.1:13306/test?useUnicode=true&characterEncoding=utf-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    slave:
+      username: root
+      password:
+#      jdbcUrl: jdbc:mysql://127.0.0.1:13307/test?useUnicode=true&characterEncoding=utf-8
+      jdbcUrl: jdbc:mysql://127.0.0.1:3306/tmr_account?useUnicode=true&characterEncoding=utf-8
+      driver-class-name: com.mysql.cj.jdbc.Driver
